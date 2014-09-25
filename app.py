@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 from flask import Flask
 from flask import request, json
 
@@ -12,7 +14,7 @@ def item():
     data = request.json
     title = data["item"]["title"]
 
-    url = "https://howtv.slack.com/services/hooks/incoming-webhook?token=a7niD6GIojyerGPS9BQDLcrA"
+    url = os.environ["SLACK_URL"]
     payload = {"text": title}
     requests.post(url, data=json.dumps(payload))
 
