@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/item", methods=["POST"])
 def item():
-    data = request.form
+    data = request.json
     title = data["item"]["title"]
 
     url = "https://howtv.slack.com/services/hooks/incoming-webhook?token=a7niD6GIojyerGPS9BQDLcrA"
